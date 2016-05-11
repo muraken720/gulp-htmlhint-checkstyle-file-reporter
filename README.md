@@ -12,14 +12,14 @@ $ npm i -D gulp-htmlhint-checkstyle-file-reporter
 
 ```javascript
 var gulp = require('gulp');
-
-// You can specify file name optionally,
-// default file name is 'htmlhint-checkstyle.xml'
-process.env.HTMLHINT_CHECKSTYLE_FILE = 'reports/htmlhint-checkstyle.xml'
+var htmlhint = require('gulp-htmlhint');
 
 gulp.task('htmlhint', function() {
-  var htmlhint = require('gulp-htmlhint');
-  gulp.src(['index.html'])
+  // You can specify file name optionally,
+  // default file name is 'htmlhint-checkstyle.xml'
+  process.env.HTMLHINT_CHECKSTYLE_FILE = 'reports/htmlhint-checkstyle.xml'
+
+  gulp.src('app/**/*.html')
     .pipe(htmlhint('.htmlhintrc'))
     .pipe(htmlhint.reporter('gulp-htmlhint-checkstyle-file-reporter'));
 });
