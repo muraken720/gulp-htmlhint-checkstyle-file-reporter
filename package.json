@@ -1,0 +1,30 @@
+{
+  "name": "gulp-htmlhint-checkstyle-file-reporter",
+  "version": "0.1.0",
+  "description": "gulp-htmlhint checkstyle file reporter",
+  "main": "index.js",
+  "scripts": {
+    "standard": "standard",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muraken720/gulp-htmlhint-checkstyle-file-reporter.git"
+  },
+  "keywords": [
+    "HTMLHint",
+    "gulp-htmlhint",
+    "checkstyle",
+    "reporter",
+    "Jenkins"
+  ],
+  "author": "Kenichiro Murata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muraken720/gulp-htmlhint-checkstyle-file-reporter/issues"
+  },
+  "homepage": "https://github.com/muraken720/gulp-htmlhint-checkstyle-file-reporter#readme",
+  "devDependencies": {
+    "standard": "^7.0.1"
+  }
+}
