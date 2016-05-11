@@ -1,4 +1,4 @@
-# gulp-htmlhint-checkstyle-file-reporter
+# gulp-htmlhint-checkstyle-file-reporter[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 Writes checkstyle output to a file. This can be used to report [gulp-htmlhint](https://www.npmjs.com/package/gulp-htmlhint) results to Jenkins.
 
 ## Install
@@ -7,8 +7,6 @@ Writes checkstyle output to a file. This can be used to report [gulp-htmlhint](h
 $ npm i -D gulp-htmlhint-checkstyle-file-reporter
 ```
 ## Usage
-
-### [gulp-htmlhint](https://www.npmjs.com/package/gulp-htmlhint)
 
 ```javascript
 var gulp = require('gulp');
