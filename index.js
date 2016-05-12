@@ -8,9 +8,8 @@
 'use strict'
 
 var fs = require('fs')
-var path = require('path')
 
-var store = []
+var htmlhintResults = []
 
 function _reporter (results) {
   var files = {}
@@ -82,11 +81,11 @@ function _reporter (results) {
 }
 
 module.exports = function (file) {
-  store = store.concat(file.htmlhint.messages)
+  htmlhintResults = htmlhintResults.concat(file.htmlhint.messages)
 
-  return _reporter(store.map(function (msg) {
+  return _reporter(htmlhintResults.map(function (msg) {
     return {
-      file: path.relative(file.cwd, msg.file),
+      file: msg.file,
       error: {
         severity: msg.error.type,
         character: msg.error.col,
