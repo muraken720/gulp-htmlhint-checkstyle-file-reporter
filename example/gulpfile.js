@@ -15,10 +15,6 @@ var FILE_NAME = 'htmlhint-checkstyle.xml'
 
 process.env.HTMLHINT_CHECKSTYLE_FILE = REPORT_DIR + FILE_NAME
 
-gulp.task('clean', function () {
-  return del([REPORT_DIR + '*.*'])
-})
-
 gulp.task('htmlhint', ['clean'], function () {
   gulp.src('app/**/*.html')
       .pipe(htmlhint('.htmlhintrc'))
@@ -35,6 +31,10 @@ gulp.task('htmlhint', ['clean'], function () {
               del([REPORT_DIR + '.tmp'])
             })
       })
+})
+
+gulp.task('clean', function () {
+  return del([REPORT_DIR + '*.*'])
 })
 
 gulp.task('default', ['htmlhint'])
