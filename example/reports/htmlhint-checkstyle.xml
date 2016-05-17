@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+	<file name="/Users/ken/work/gulp-htmlhint-checkstyle-file-reporter/example/app/index.html">
+		<error line="4" column="3" severity="warning" message="The empty tag : [ meta ] must be self closed." source="htmlhint.tag-self-close" />
+		<error line="5" column="8" severity="error" message="The attribute name of [ HREF ] must be in lowercase." source="htmlhint.attr-lowercase" />
+		<error line="6" column="1" severity="error" message="&lt;title&gt; must be present in &lt;head&gt; tag." source="htmlhint.title-require" />
+		<error line="8" column="3" severity="error" message="The html element name of [ DIV ] must be in lowercase." source="htmlhint.tagname-lowercase" />
+		<error line="8" column="26" severity="error" message="The html element name of [ DIV ] must be in lowercase." source="htmlhint.tagname-lowercase" />
+		<error line="10" column="10" severity="error" message="The attribute [ src ] of the tag [ script ] must have a value." source="htmlhint.src-not-empty" />
+	</file>
+	<file name="/Users/ken/work/gulp-htmlhint-checkstyle-file-reporter/example/app/main/main.html">
+		<error line="1" column="5" severity="error" message="The value of attribute [ class ] must be in double quotes." source="htmlhint.attr-value-double-quotes" />
+	</file>
+</checkstyle>

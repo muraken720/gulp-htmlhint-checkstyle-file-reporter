@@ -1,0 +1,20 @@
+{
+  "name": "example",
+  "description": "gulp-htmlhint-checkstyle-file-reporter example",
+  "version": "0.3.0",
+  "author": "Kenichiro Murata",
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-footer": "^1.0.5",
+    "gulp-header": "^1.8.2",
+    "gulp-htmlhint": "^0.3.1",
+    "vinyl-paths": "^2.1.0"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "lint": "gulp"
+  }
+}
