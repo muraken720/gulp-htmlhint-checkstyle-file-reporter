@@ -9,18 +9,38 @@ $ npm i -D gulp-htmlhint-checkstyle-file-reporter
 ## Usage
 
 ```javascript
-var gulp = require('gulp');
-var htmlhint = require('gulp-htmlhint');
+var gulp = require('gulp')
+var del = require('del')
+var vinylPaths = require('vinyl-paths')
+var htmlhint = require('gulp-htmlhint')
+var concat = require('gulp-concat')
+var header = require('gulp-header')
+var footer = require('gulp-footer')
 
-gulp.task('htmlhint', function() {
-  // You can specify file name optionally,
-  // default file name is 'htmlhint-checkstyle.xml'
-  process.env.HTMLHINT_CHECKSTYLE_FILE = 'reports/htmlhint-checkstyle.xml'
+var REPORT_DIR = 'reports/'
+var FILE_NAME = 'htmlhint-checkstyle.xml'
 
+// You can specify file name optionally,
+// default file name is 'htmlhint-checkstyle.xml'
+process.env.HTMLHINT_CHECKSTYLE_FILE = REPORT_DIR + FILE_NAME
+
+gulp.task('htmlhint', ['clean'], function () {
   gulp.src('app/**/*.html')
-    .pipe(htmlhint('.htmlhintrc'))
-    .pipe(htmlhint.reporter('gulp-htmlhint-checkstyle-file-reporter'));
-});
+      .pipe(htmlhint('.htmlhintrc'))
+      .pipe(htmlhint.reporter('gulp-htmlhint-checkstyle-file-reporter'))
+      .pipe(gulp.dest(REPORT_DIR + '.tmp'))
+      .on('end', function () {
+        gulp.src(REPORT_DIR + '*.tmp.*')
+            .pipe(vinylPaths(del))
+            .pipe(concat(FILE_NAME))
+            .pipe(header('<?xml version="1.0" encoding="utf-8"?>\n<checkstyle version="4.3">\n'))
+            .pipe(footer('\n</checkstyle>'))
+            .pipe(gulp.dest(REPORT_DIR))
+            .on('end', function () {
+              del([REPORT_DIR + '.tmp'])
+            })
+      })
+})
 ```
 
 ## Related

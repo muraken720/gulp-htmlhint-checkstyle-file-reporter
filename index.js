@@ -9,7 +9,7 @@
 
 var fs = require('fs')
 
-var htmlhintResults = []
+var errorFileCount = 0
 
 function _reporter (results) {
   var files = {}
@@ -52,9 +52,6 @@ function _reporter (results) {
     })
   })
 
-  out.push('<?xml version="1.0" encoding="utf-8"?>')
-  out.push('<checkstyle version="4.3">')
-
   for (fileName in files) {
     if (files.hasOwnProperty(fileName)) {
       out.push('\t<file name="' + fileName + '">')
@@ -74,16 +71,15 @@ function _reporter (results) {
     }
   }
 
-  out.push('</checkstyle>')
-
   var filename = process.env.HTMLHINT_CHECKSTYLE_FILE || 'htmlhint-checkstyle.xml'
+  filename += '.tmp.' + errorFileCount
   fs.writeFileSync(filename, out.join('\n'))
 }
 
 module.exports = function (file) {
-  htmlhintResults = htmlhintResults.concat(file.htmlhint.messages)
+  errorFileCount++
 
-  return _reporter(htmlhintResults.map(function (msg) {
+  return _reporter(file.htmlhint.messages.map(function (msg) {
     return {
       file: msg.file,
       error: {

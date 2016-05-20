@@ -1,7 +1,7 @@
 {
   "name": "gulp-htmlhint-checkstyle-file-reporter",
   "description": "gulp-htmlhint checkstyle file reporter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Kenichiro Murata",
   "bugs": {
     "url": "https://github.com/muraken720/gulp-htmlhint-checkstyle-file-reporter/issues"
